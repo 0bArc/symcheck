@@ -1,0 +1,25 @@
+# Build trees
+/build/
+**/out/
+/.vs/
+.cursor/
+.cache/
+CMakeUserPresets.json
+*.user
+
+# Compiler / linker leftovers
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.iobj
+*.ipdb
+*.exe
+*.lib
+*.dll
+*.a
+*.o
+
+# Keep unit-test sources even if names collide with patterns above
+!tests/unit/
+!tests/unit/**

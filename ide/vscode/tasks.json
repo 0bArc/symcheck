@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "SymCheck: build",
+      "type": "shell",
+      "command": "${workspaceFolder}/build.bat",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "SymCheck: ci",
+      "type": "shell",
+      "command": "${workspaceFolder}/symcheck.bat",
+      "args": ["ci", "--discover", "--root", "${workspaceFolder}"],
+      "problemMatcher": {
+        "owner": "symcheck",
+        "fileLocation": ["absolute"],
+        "pattern": {
+          "regexp": "^\\s*\\[(error|warning)\\] ([^:]+): (.+)$",
+          "severity": 1,
+          "code": 2,
+          "message": 3
+        }
+      }
+    },
+    {
+      "label": "SymCheck: ci SARIF",
+      "type": "shell",
+      "command": "${workspaceFolder}/symcheck.bat",
+      "args": ["ci", "--discover", "--sarif"],
+      "problemMatcher": []
+    }
+  ]
+}
